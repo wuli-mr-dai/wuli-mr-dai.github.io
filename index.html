@@ -84,7 +84,7 @@
   <ul class="main-menu menu">
         <li class="menu-item menu-item-首页"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
         <li class="menu-item menu-item-编程"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>编程</a></li>
-        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">3</span></a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">4</span></a></li>
         <li class="menu-item menu-item-schedule"><a href="/schedule/" rel="section"><i class="fa fa-calendar fa-fw"></i>日程表</a></li>
         <li class="menu-item menu-item-sitemap"><a href="/sitemap" rel="section"><i class="fa fa-sitemap fa-fw"></i>站点地图</a></li>
         <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
@@ -133,9 +133,13 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">3</span>
+          <span class="site-state-item-count">4</span>
           <span class="site-state-item-name">日志</span>
         </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">标签</span>
       </div>
   </nav>
 </div>
@@ -183,6 +187,107 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/08/24/git/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/ao.jpg">
+      <meta itemprop="name" content="代先森">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="DikL">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2021/08/24/git/" class="post-title-link" itemprop="url">git之团队内协作和跨团队协作</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2021-08-24 15:51:11 / 修改时间：17:10:44" itemprop="dateCreated datePublished" datetime="2021-08-24T15:51:11+08:00">2021-08-24</time>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Changyan：</span>
+    
+    
+      <a title="changyan" href="/2021/08/24/git/#SOHUCS" itemprop="discussionUrl">
+        <span id="url::http://example.com/2021/08/24/git/" class="cy_cmt_count" data-xid="2021/08/24/git/" itemprop="commentCount"></span>
+      </a>
+    
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h3 id="今天在学习git的时候，了解到两个很重要的概念：团队内协作和跨团队协作"><a href="#今天在学习git的时候，了解到两个很重要的概念：团队内协作和跨团队协作" class="headerlink" title="今天在学习git的时候，了解到两个很重要的概念：团队内协作和跨团队协作"></a>今天在学习git的时候，了解到两个很重要的概念：团队内协作和跨团队协作</h3><h2 id="团队内协作的机制"><a href="#团队内协作的机制" class="headerlink" title="团队内协作的机制"></a>团队内协作的机制</h2><p><img data-src="/2021/08/24/git/%E5%9B%A2%E9%98%9F%E5%86%85%E5%8D%8F%E4%BD%9C.png" alt="团队内协作"></p>
+<ul>
+<li>本地库1和本地库2分别代表两个成员；</li>
+<li>成员1将写好的代码push到远程库，然后成员二想修改代码，这时候就通过git pull 或 git clone把它拉取到自己的本地库；</li>
+<li>修改好后，此时成员2想把修改后的代码提交到远程库，这时候通过git push 是不可以的；</li>
+<li>此时就需要成员1把成员2拉近自己本地库的管理团队中，这时成员2才有提交的权限；</li>
+<li>然后，成员2就可以顺利提交到远程库。</li>
+</ul>
+<h2 id="跨团队协作机制"><a href="#跨团队协作机制" class="headerlink" title="跨团队协作机制"></a>跨团队协作机制</h2><p><img data-src="/2021/08/24/git/%E8%B7%A8%E5%9B%A2%E9%98%9F%E5%8D%8F%E4%BD%9C.png" alt="跨团队协作"></p>
+<ul>
+<li>本地库1本地库2和本地库3分别代表三个成员，其中成员1和成员2互为团队成员；</li>
+<li>成员1将写好的代码推送到远程库，这时候团队外的一名成员想要修改代码；</li>
+<li>先在github中搜索到这个项目，然后再fork一份到自己的远程库；</li>
+<li>再通过git pull/git clone 拉取到自己的本地库</li>
+<li>将代码修改好后，push到自己的远程库</li>
+<li>这个时候要想推送给成员1的远程库，就要先给成员1发送pull Request</li>
+<li>成员1收到请求后，先查看代码是否符合自己的预期，如果符合预期，就同意申请</li>
+<li>同意后，再把成员3修改的代码merg到自己代码上</li>
+<li>之后成员1和成员2就可以看到修改后的代码</li>
+</ul>
+<h3 id="写在最后"><a href="#写在最后" class="headerlink" title="写在最后"></a>写在最后</h3><p>这就是本次我的学习感想，可能不是很全面，还请大家多多批评！</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="http://example.com/2021/08/23/JS%E9%A2%84%E8%A7%A3%E6%9E%90/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -214,7 +319,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2021-08-24 09:37:15" itemprop="dateModified" datetime="2021-08-24T09:37:15+08:00">2021-08-24</time>
+        <time title="修改时间：2021-08-24 16:14:21" itemprop="dateModified" datetime="2021-08-24T16:14:21+08:00">2021-08-24</time>
       </span>
 
   
