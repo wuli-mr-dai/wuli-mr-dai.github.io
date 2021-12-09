@@ -28,7 +28,7 @@
 <meta property="og:description" content="Vue3起步——邂逅setup函数  在学习Vue3的时候，我们首先第一步要接触的肯定就是setup函数了。那么，setup函数是什么呢？   首先，我们要明确的是setup函数是所有组合式API的入口。那么问题又来了，什么是组合式API呢？通过创建Vue组件，我们可以将界面中重复的部分连同其功能一起提取为可重用的代码段。仅此一项就可以使我们的应用在可维护性和灵活性方面走得相当远。然而，我们的经验">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-12-09T02:26:54.000Z">
-<meta property="article:modified_time" content="2021-12-09T02:35:26.874Z">
+<meta property="article:modified_time" content="2021-12-09T02:41:50.949Z">
 <meta property="article:author" content="代先森">
 <meta property="article:tag" content="Vue3">
 <meta name="twitter:card" content="summary">
@@ -219,7 +219,7 @@
       <span class="post-meta-item-text">发表于</span>
       
 
-      <time title="创建时间：2021-12-09 10:26:54 / 修改时间：10:35:26" itemprop="dateCreated datePublished" datetime="2021-12-09T10:26:54+08:00">2021-12-09</time>
+      <time title="创建时间：2021-12-09 10:26:54 / 修改时间：10:41:50" itemprop="dateCreated datePublished" datetime="2021-12-09T10:26:54+08:00">2021-12-09</time>
     </span>
 
   
@@ -254,8 +254,11 @@
 <ul>
 <li>setup函数是所有组合式API的入口；</li>
 <li>它的生命周期在beforeCreate和Created之前；</li>
-<li>它自身有两个参数：第一个是props，使用这个参数之前必须在初始化的时候声明，（type,default,validator）,因为它自身是一个响应式数据，解构会让props失去响应式；</li>
+<li>它自身有两个参数：<ul>
+<li>第一个是props，使用这个参数之前必须在初始化的时候声明，（type,default,validator）,因为它自身是一个响应式数据，解构会让props失去响应式；</li>
 <li>第二个参数是context：这里包含定义的事件，和一些没有被声明的属性参数，attrs和slots在这里被调用；</li>
+</ul>
+</li>
 <li>本身是一个函数，里面集合了组件的数据，方法等 ； </li>
 <li>有返回值，是一个对象，并且对象里的值可以直接在组件内使用。</li>
 </ul>

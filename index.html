@@ -212,7 +212,7 @@
       <span class="post-meta-item-text">发表于</span>
       
 
-      <time title="创建时间：2021-12-09 10:26:54 / 修改时间：10:35:26" itemprop="dateCreated datePublished" datetime="2021-12-09T10:26:54+08:00">2021-12-09</time>
+      <time title="创建时间：2021-12-09 10:26:54 / 修改时间：10:41:50" itemprop="dateCreated datePublished" datetime="2021-12-09T10:26:54+08:00">2021-12-09</time>
     </span>
 
   
@@ -247,8 +247,11 @@
 <ul>
 <li>setup函数是所有组合式API的入口；</li>
 <li>它的生命周期在beforeCreate和Created之前；</li>
-<li>它自身有两个参数：第一个是props，使用这个参数之前必须在初始化的时候声明，（type,default,validator）,因为它自身是一个响应式数据，解构会让props失去响应式；</li>
+<li>它自身有两个参数：<ul>
+<li>第一个是props，使用这个参数之前必须在初始化的时候声明，（type,default,validator）,因为它自身是一个响应式数据，解构会让props失去响应式；</li>
 <li>第二个参数是context：这里包含定义的事件，和一些没有被声明的属性参数，attrs和slots在这里被调用；</li>
+</ul>
+</li>
 <li>本身是一个函数，里面集合了组件的数据，方法等 ； </li>
 <li>有返回值，是一个对象，并且对象里的值可以直接在组件内使用。</li>
 </ul>
@@ -307,7 +310,7 @@
       <span class="post-meta-item-text">发表于</span>
       
 
-      <time title="创建时间：2021-12-09 10:16:16 / 修改时间：10:35:11" itemprop="dateCreated datePublished" datetime="2021-12-09T10:16:16+08:00">2021-12-09</time>
+      <time title="创建时间：2021-12-09 10:16:16 / 修改时间：10:37:06" itemprop="dateCreated datePublished" datetime="2021-12-09T10:16:16+08:00">2021-12-09</time>
     </span>
 
   
@@ -336,7 +339,7 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h2 id="在使用Vue-Cli创建项目的时候，会有一个Vue-Build选项：runtime-only和runtime-compiler。那么，他们两个的区别到底是什么呢？"><a href="#在使用Vue-Cli创建项目的时候，会有一个Vue-Build选项：runtime-only和runtime-compiler。那么，他们两个的区别到底是什么呢？" class="headerlink" title="在使用Vue-Cli创建项目的时候，会有一个Vue Build选项：runtime-only和runtime+compiler。那么，他们两个的区别到底是什么呢？"></a>在使用Vue-Cli创建项目的时候，会有一个Vue Build选项：runtime-only和runtime+compiler。那么，他们两个的区别到底是什么呢？</h2><h2 id="runtime-only"><a href="#runtime-only" class="headerlink" title="runtime-only:"></a>runtime-only:</h2><p>在这种模式下，通常需要借助webpack中的vue-loader将.vue文件解析成.js文件，因为是在编译阶段做的，所以他只包括运行时的Vue.js代码，这就使得其代码量更加轻量级。<br>同时，在编译.vue文件的时候，vue-template-compiler会将组件中的template模板编译为render函数，所以就省去了由template到ast（抽象语法树）的过程，因此这种模式性能更好。<br>下面说一下runtime-only的解析过程：<br>render-&gt;virtualDom-&gt;UI</p>
+          <h2 id="在使用Vue-Cli创建项目的时候，会有一个Vue-Build选项：runtime-only和runtime-compiler。那么，他们两个的区别到底是什么呢？"><a href="#在使用Vue-Cli创建项目的时候，会有一个Vue-Build选项：runtime-only和runtime-compiler。那么，他们两个的区别到底是什么呢？" class="headerlink" title="在使用Vue-Cli创建项目的时候，会有一个Vue Build选项：runtime-only和runtime+compiler。那么，他们两个的区别到底是什么呢？"></a>在使用Vue-Cli创建项目的时候，会有一个Vue Build选项：runtime-only和runtime+compiler。那么，他们两个的区别到底是什么呢？</h2><h3 id="runtime-only"><a href="#runtime-only" class="headerlink" title="runtime-only:"></a>runtime-only:</h3><p>在这种模式下，通常需要借助webpack中的vue-loader将.vue文件解析成.js文件，因为是在编译阶段做的，所以他只包括运行时的Vue.js代码，这就使得其代码量更加轻量级。<br>同时，在编译.vue文件的时候，vue-template-compiler会将组件中的template模板编译为render函数，所以就省去了由template到ast（抽象语法树）的过程，因此这种模式性能更好。<br>下面说一下runtime-only的解析过程：<br>render-&gt;virtualDom-&gt;UI</p>
 <h3 id="runtime-compiler"><a href="#runtime-compiler" class="headerlink" title="runtime+compiler:"></a>runtime+compiler:</h3><p>只有以下情况会用到compiler：<br>没有指定template；<br>没有指定template，也没有指定render函数。<br>老规矩，说一下runtime+compiler的执行过程：<br>template-&gt;ast(抽象语法树)-&gt;render-&gt;virtualDom-&gt;UI</p>
 <h3 id="补充说一下render函数："><a href="#补充说一下render函数：" class="headerlink" title="补充说一下render函数："></a>补充说一下render函数：</h3><p>基本用法：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> Vue(&#123;</span><br><span class="line">    <span class="attr">el</span>:<span class="string">&#x27;#app&#x27;</span>,</span><br><span class="line">  </span><br><span class="line">    <span class="comment">//在创建的时候createElement用h代替</span></span><br><span class="line">    <span class="attr">render</span>:<span class="function"><span class="keyword">function</span>(<span class="params">createEelment</span>) </span>&#123;</span><br><span class="line">      </span><br><span class="line">    <span class="comment">//1.普通用法：</span></span><br><span class="line">    <span class="comment">//createElement(&#x27;标签名&#x27;,&#123;标签属性&#125;,[&#x27;标签内容&#x27;])</span></span><br><span class="line">    createElement(<span class="string">&#x27;h2&#x27;</span>,&#123;<span class="attr">calss</span>:<span class="string">&#x27;box&#x27;</span>&#125;,[<span class="string">&#x27;hello&#x27;</span>])</span><br><span class="line">&#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
