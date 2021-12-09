@@ -20,31 +20,28 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
 <script class="next-config" data-name="main" type="application/json">{&quot;hostname&quot;:&quot;example.com&quot;,&quot;root&quot;:&quot;&#x2F;&quot;,&quot;images&quot;:&quot;&#x2F;images&quot;,&quot;scheme&quot;:&quot;Pisces&quot;,&quot;version&quot;:&quot;8.5.0&quot;,&quot;exturl&quot;:false,&quot;sidebar&quot;:{&quot;position&quot;:&quot;left&quot;,&quot;display&quot;:&quot;always&quot;,&quot;padding&quot;:18,&quot;offset&quot;:12},&quot;copycode&quot;:true,&quot;bookmark&quot;:{&quot;enable&quot;:true,&quot;color&quot;:&quot;#222&quot;,&quot;save&quot;:&quot;auto&quot;},&quot;fancybox&quot;:false,&quot;mediumzoom&quot;:false,&quot;lazyload&quot;:true,&quot;pangu&quot;:false,&quot;comments&quot;:{&quot;style&quot;:&quot;tabs&quot;,&quot;active&quot;:null,&quot;storage&quot;:true,&quot;lazyload&quot;:false,&quot;nav&quot;:null},&quot;motion&quot;:{&quot;enable&quot;:true,&quot;async&quot;:false,&quot;transition&quot;:{&quot;post_block&quot;:&quot;fadeIn&quot;,&quot;post_header&quot;:&quot;fadeInDown&quot;,&quot;post_body&quot;:&quot;fadeInDown&quot;,&quot;coll_header&quot;:&quot;fadeInLeft&quot;,&quot;sidebar&quot;:&quot;fadeInUp&quot;}},&quot;prism&quot;:false,&quot;i18n&quot;:{&quot;placeholder&quot;:&quot;搜索...&quot;,&quot;empty&quot;:&quot;没有找到任何搜索结果：${query}&quot;,&quot;hits_time&quot;:&quot;找到 ${hits} 个搜索结果（用时 ${time} 毫秒）&quot;,&quot;hits&quot;:&quot;找到 ${hits} 个搜索结果&quot;}}</script><script src="/js/config.js"></script>
-<meta name="description" content="今天在学习git的时候，了解到两个很重要的概念：团队内协作和跨团队协作团队内协作的机制  本地库1和本地库2分别代表两个成员； 成员1将写好的代码push到远程库，然后成员二想修改代码，这时候就通过git pull 或 git clone把它拉取到自己的本地库； 修改好后，此时成员2想把修改后的代码提交到远程库，这时候通过git push 是不可以的； 此时就需要成员1把成员2拉进自己本地库的管理">
+<meta name="description" content="Vue3起步——邂逅setup函数  在学习Vue3的时候，我们首先第一步要接触的肯定就是setup函数了。那么，setup函数是什么呢？   首先，我们要明确的是setup函数是所有组合式API的入口。那么问题又来了，什么是组合式API呢？通过创建Vue组件，我们可以将界面中重复的部分连同其功能一起提取为可重用的代码段。仅此一项就可以使我们的应用在可维护性和灵活性方面走得相当远。然而，我们的经验">
 <meta property="og:type" content="article">
-<meta property="og:title" content="git之团队内协作和跨团队协作">
-<meta property="og:url" content="http://example.com/2021/08/24/git/index.html">
+<meta property="og:title" content="Vue3起步——邂逅setup函数">
+<meta property="og:url" content="http://example.com/2021/12/09/Vue3%E8%B5%B7%E6%AD%A5%E2%80%94%E2%80%94%E9%82%82%E9%80%85setup%E5%87%BD%E6%95%B0/index.html">
 <meta property="og:site_name" content="DikL">
-<meta property="og:description" content="今天在学习git的时候，了解到两个很重要的概念：团队内协作和跨团队协作团队内协作的机制  本地库1和本地库2分别代表两个成员； 成员1将写好的代码push到远程库，然后成员二想修改代码，这时候就通过git pull 或 git clone把它拉取到自己的本地库； 修改好后，此时成员2想把修改后的代码提交到远程库，这时候通过git push 是不可以的； 此时就需要成员1把成员2拉进自己本地库的管理">
+<meta property="og:description" content="Vue3起步——邂逅setup函数  在学习Vue3的时候，我们首先第一步要接触的肯定就是setup函数了。那么，setup函数是什么呢？   首先，我们要明确的是setup函数是所有组合式API的入口。那么问题又来了，什么是组合式API呢？通过创建Vue组件，我们可以将界面中重复的部分连同其功能一起提取为可重用的代码段。仅此一项就可以使我们的应用在可维护性和灵活性方面走得相当远。然而，我们的经验">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://example.com/2021/08/24/git/%E5%9B%A2%E9%98%9F%E5%86%85%E5%8D%8F%E4%BD%9C.png">
-<meta property="og:image" content="http://example.com/2021/08/24/git/%E8%B7%A8%E5%9B%A2%E9%98%9F%E5%8D%8F%E4%BD%9C.png">
-<meta property="article:published_time" content="2021-08-24T07:51:11.000Z">
-<meta property="article:modified_time" content="2021-08-25T02:44:11.204Z">
+<meta property="article:published_time" content="2021-12-09T02:26:54.000Z">
+<meta property="article:modified_time" content="2021-12-09T02:35:26.874Z">
 <meta property="article:author" content="代先森">
-<meta property="article:tag" content="git">
+<meta property="article:tag" content="Vue3">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://example.com/2021/08/24/git/%E5%9B%A2%E9%98%9F%E5%86%85%E5%8D%8F%E4%BD%9C.png">
 
 
-<link rel="canonical" href="http://example.com/2021/08/24/git/">
+<link rel="canonical" href="http://example.com/2021/12/09/Vue3%E8%B5%B7%E6%AD%A5%E2%80%94%E2%80%94%E9%82%82%E9%80%85setup%E5%87%BD%E6%95%B0/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{&quot;sidebar&quot;:&quot;&quot;,&quot;isHome&quot;:false,&quot;isPost&quot;:true,&quot;lang&quot;:&quot;zh-CN&quot;,&quot;comments&quot;:true,&quot;permalink&quot;:&quot;http:&#x2F;&#x2F;example.com&#x2F;2021&#x2F;08&#x2F;24&#x2F;git&#x2F;&quot;,&quot;path&quot;:&quot;2021&#x2F;08&#x2F;24&#x2F;git&#x2F;&quot;,&quot;title&quot;:&quot;git之团队内协作和跨团队协作&quot;}</script>
+<script class="next-config" data-name="page" type="application/json">{&quot;sidebar&quot;:&quot;&quot;,&quot;isHome&quot;:false,&quot;isPost&quot;:true,&quot;lang&quot;:&quot;zh-CN&quot;,&quot;comments&quot;:true,&quot;permalink&quot;:&quot;http:&#x2F;&#x2F;example.com&#x2F;2021&#x2F;12&#x2F;09&#x2F;Vue3%E8%B5%B7%E6%AD%A5%E2%80%94%E2%80%94%E9%82%82%E9%80%85setup%E5%87%BD%E6%95%B0&#x2F;&quot;,&quot;path&quot;:&quot;2021&#x2F;12&#x2F;09&#x2F;Vue3起步——邂逅setup函数&#x2F;&quot;,&quot;title&quot;:&quot;Vue3起步——邂逅setup函数&quot;}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">&quot;&quot;</script>
-<title>git之团队内协作和跨团队协作 | DikL</title>
+<title>Vue3起步——邂逅setup函数 | DikL</title>
   
 
 
@@ -126,7 +123,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%8A%E5%A4%A9%E5%9C%A8%E5%AD%A6%E4%B9%A0git%E7%9A%84%E6%97%B6%E5%80%99%EF%BC%8C%E4%BA%86%E8%A7%A3%E5%88%B0%E4%B8%A4%E4%B8%AA%E5%BE%88%E9%87%8D%E8%A6%81%E7%9A%84%E6%A6%82%E5%BF%B5%EF%BC%9A%E5%9B%A2%E9%98%9F%E5%86%85%E5%8D%8F%E4%BD%9C%E5%92%8C%E8%B7%A8%E5%9B%A2%E9%98%9F%E5%8D%8F%E4%BD%9C"><span class="nav-number">1.</span> <span class="nav-text">今天在学习git的时候，了解到两个很重要的概念：团队内协作和跨团队协作</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%A2%E9%98%9F%E5%86%85%E5%8D%8F%E4%BD%9C%E7%9A%84%E6%9C%BA%E5%88%B6"><span class="nav-number"></span> <span class="nav-text">团队内协作的机制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%B7%A8%E5%9B%A2%E9%98%9F%E5%8D%8F%E4%BD%9C%E6%9C%BA%E5%88%B6"><span class="nav-number"></span> <span class="nav-text">跨团队协作机制</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%86%99%E5%9C%A8%E6%9C%80%E5%90%8E"><span class="nav-number">1.</span> <span class="nav-text">写在最后</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Vue3%E8%B5%B7%E6%AD%A5%E2%80%94%E2%80%94%E9%82%82%E9%80%85setup%E5%87%BD%E6%95%B0"><span class="nav-number">1.</span> <span class="nav-text">Vue3起步——邂逅setup函数</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -197,7 +194,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/08/24/git/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/12/09/Vue3%E8%B5%B7%E6%AD%A5%E2%80%94%E2%80%94%E9%82%82%E9%80%85setup%E5%87%BD%E6%95%B0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/ao.jpg">
@@ -210,7 +207,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          git之团队内协作和跨团队协作
+          Vue3起步——邂逅setup函数
         </h1>
 
         <div class="post-meta-container">
@@ -220,16 +217,10 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
+      
 
-      <time title="创建时间：2021-08-24 15:51:11" itemprop="dateCreated datePublished" datetime="2021-08-24T15:51:11+08:00">2021-08-24</time>
+      <time title="创建时间：2021-12-09 10:26:54 / 修改时间：10:35:26" itemprop="dateCreated datePublished" datetime="2021-12-09T10:26:54+08:00">2021-12-09</time>
     </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2021-08-25 10:44:11" itemprop="dateModified" datetime="2021-08-25T10:44:11+08:00">2021-08-25</time>
-      </span>
 
   
   
@@ -241,8 +232,8 @@
       <span class="post-meta-item-text">Changyan：</span>
     
     
-      <a title="changyan" href="/2021/08/24/git/#SOHUCS" itemprop="discussionUrl">
-        <span id="changyan_count_unit" class="post-comments-count hc-comment-count" data-xid="2021/08/24/git/" itemprop="commentCount"></span>
+      <a title="changyan" href="/2021/12/09/Vue3%E8%B5%B7%E6%AD%A5%E2%80%94%E2%80%94%E9%82%82%E9%80%85setup%E5%87%BD%E6%95%B0/#SOHUCS" itemprop="discussionUrl">
+        <span id="changyan_count_unit" class="post-comments-count hc-comment-count" data-xid="2021/12/09/Vue3起步——邂逅setup函数/" itemprop="commentCount"></span>
       </a>
     
   </span>
@@ -257,27 +248,21 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h3 id="今天在学习git的时候，了解到两个很重要的概念：团队内协作和跨团队协作"><a href="#今天在学习git的时候，了解到两个很重要的概念：团队内协作和跨团队协作" class="headerlink" title="今天在学习git的时候，了解到两个很重要的概念：团队内协作和跨团队协作"></a>今天在学习git的时候，了解到两个很重要的概念：团队内协作和跨团队协作</h3><h2 id="团队内协作的机制"><a href="#团队内协作的机制" class="headerlink" title="团队内协作的机制"></a>团队内协作的机制</h2><p><img data-src="/2021/08/24/git/%E5%9B%A2%E9%98%9F%E5%86%85%E5%8D%8F%E4%BD%9C.png" alt="团队内协作"></p>
+        <h2 id="Vue3起步——邂逅setup函数"><a href="#Vue3起步——邂逅setup函数" class="headerlink" title="Vue3起步——邂逅setup函数"></a>Vue3起步——邂逅setup函数</h2><p>  在学习Vue3的时候，我们首先第一步要接触的肯定就是setup函数了。那么，setup函数是什么呢？</p>
+<p>  首先，我们要明确的是setup函数是所有<em>组合式API</em>的入口。那么问题又来了，什么是组合式API呢？<br>通过创建Vue组件，我们可以将界面中重复的部分连同其功能一起提取为可重用的代码段。仅此一项就可以使我们的应用在可维护性和灵活性方面走得相当远。然而，我们的经验已经证明，光靠这一点可能并不够，尤其是当你的应用变得非常大的时候——想想几百个组件。处理这样的大型应用时，共享和重用代码变得尤为重要。这是Vue3官方文档的解释，通过这段话我们知道，组合式API的特点就是将组件间公用的部分及代码抽离出来，然后变为一个可复用的代码段。这相对于Vue2的<em>配置项API</em>来说是一个大的改进，因为Vue2的配置项API会把所有的逻辑点全部写在一个文件里，如果逻辑少的话还算方便，但是当逻辑关注点多了以后，整个组件就会变得非常冗杂，可读性和可维护性就会大大降低。</p>
+<p>那么组合式API的作用就出现了：将多个逻辑关注点的代码整合在一起，增强可读性。现在，我们知道了组合式API的作用，那它到底怎么整合呢？这就要交给setup函数来处理了。先来了解setup函数：</p>
 <ul>
-<li>本地库1和本地库2分别代表两个成员；</li>
-<li>成员1将写好的代码push到远程库，然后成员二想修改代码，这时候就通过git pull 或 git clone把它拉取到自己的本地库；</li>
-<li>修改好后，此时成员2想把修改后的代码提交到远程库，这时候通过git push 是不可以的；</li>
-<li>此时就需要成员1把成员2拉进自己本地库的管理团队中，这时成员2才有提交的权限；</li>
-<li>然后，成员2就可以顺利提交到远程库。</li>
+<li>setup函数是所有组合式API的入口；</li>
+<li>它的生命周期在beforeCreate和Created之前；</li>
+<li>它自身有两个参数：第一个是props，使用这个参数之前必须在初始化的时候声明，（type,default,validator）,因为它自身是一个响应式数据，解构会让props失去响应式；</li>
+<li>第二个参数是context：这里包含定义的事件，和一些没有被声明的属性参数，attrs和slots在这里被调用；</li>
+<li>本身是一个函数，里面集合了组件的数据，方法等 ； </li>
+<li>有返回值，是一个对象，并且对象里的值可以直接在组件内使用。</li>
 </ul>
-<h2 id="跨团队协作机制"><a href="#跨团队协作机制" class="headerlink" title="跨团队协作机制"></a>跨团队协作机制</h2><p><img data-src="/2021/08/24/git/%E8%B7%A8%E5%9B%A2%E9%98%9F%E5%8D%8F%E4%BD%9C.png" alt="跨团队协作"></p>
-<ul>
-<li>本地库1本地库2和本地库3分别代表三个成员，其中成员1和成员2互为团队成员；</li>
-<li>成员1将写好的代码推送到远程库，这时候团队外的一名成员想要修改代码；</li>
-<li>先在github中搜索到这个项目，然后再fork一份到自己的远程库；</li>
-<li>再通过git pull/git clone 拉取到自己的本地库</li>
-<li>将代码修改好后，push到自己的远程库</li>
-<li>这个时候要想推送给成员1的远程库，就要先给成员1发送pull Request</li>
-<li>成员1收到请求后，先查看代码是否符合自己的预期，如果符合预期，就同意申请</li>
-<li>同意后，再把成员3修改的代码merg到自己代码上</li>
-<li>之后成员1和成员2就可以看到修改后的代码</li>
-</ul>
-<h3 id="写在最后"><a href="#写在最后" class="headerlink" title="写在最后"></a>写在最后</h3><p>这就是本次我的学习感想，可能不是很全面，还请大家多多批评！</p>
+<p>下来直接上代码：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123;ref,reactive&#125; <span class="keyword">from</span> <span class="string">&#x27;vue&#x27;</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  <span class="attr">name</span>: <span class="string">&#x27;App&#x27;</span>,</span><br><span class="line">  <span class="attr">components</span>: &#123;</span><br><span class="line">    </span><br><span class="line">  &#125;,</span><br><span class="line">  setup (props,context) &#123;</span><br><span class="line">    </span><br><span class="line">   	<span class="comment">//定义响应式数据,通过ref来实现(ref只能定义简单数据类型的响应式)</span></span><br><span class="line">  	<span class="keyword">let</span> name = ref(<span class="string">&#x27;张三&#x27;</span>)</span><br><span class="line">    </span><br><span class="line">   <span class="comment">//定义对象类型的响应式数据，通过reactive来实现</span></span><br><span class="line">    <span class="keyword">let</span> car = reactive(&#123;</span><br><span class="line">      <span class="attr">name</span>: <span class="string">&#x27;奔驰&#x27;</span>,</span><br><span class="line">      <span class="attr">price</span>: <span class="number">30</span></span><br><span class="line">    &#125;)</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//此处定义一些方法</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">add</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">      </span><br><span class="line">      <span class="comment">/**</span></span><br><span class="line"><span class="comment">      在 setup 中你应该避免使用this，因为它不会找到组件实例。</span></span><br><span class="line"><span class="comment">      setup 的调用发生在 data property、computed property 或 methods 被解析之前，</span></span><br><span class="line"><span class="comment">      所以它们无法在 setup 中被获取。</span></span><br><span class="line"><span class="comment">      **/</span></span><br><span class="line">      <span class="keyword">return</span> car.price ++</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">      </span><br><span class="line">      <span class="comment">//注意，此处一定要返回，要不然组件读取不到</span></span><br><span class="line">      name,</span><br><span class="line">      car</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这就是setup函数的基本用法，可以看到，它将公用的逻辑点全部整合到一起，这样就大大提高了可复用性。其实，这只是Vue3的一个开始，我上面的只是一个起步，后续随着学习的不断深入，setup的作用肯定会越来越明显的。</p>
 
     </div>
 
@@ -287,21 +272,18 @@
 
     <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/git/" rel="tag"># git</a>
+              <a href="/tags/Vue3/" rel="tag"># Vue3</a>
           </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2021/08/23/JS%E9%A2%84%E8%A7%A3%E6%9E%90/" rel="prev" title="JS预解析">
-                  <i class="fa fa-chevron-left"></i> JS预解析
+                <a href="/2021/12/09/runtime-only%E5%92%8Cruntime-compiler%E7%9A%84%E5%8C%BA%E5%88%AB/" rel="prev" title="runtime-only和runtime+compiler的区别">
+                  <i class="fa fa-chevron-left"></i> runtime-only和runtime+compiler的区别
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2021/08/25/%E7%B1%BB%E5%92%8C%E5%AF%B9%E8%B1%A1/" rel="next" title="类和对象">
-                  类和对象 <i class="fa fa-chevron-right"></i>
-                </a>
             </div>
           </div>
     </footer>

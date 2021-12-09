@@ -20,31 +20,28 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
 <script class="next-config" data-name="main" type="application/json">{&quot;hostname&quot;:&quot;example.com&quot;,&quot;root&quot;:&quot;&#x2F;&quot;,&quot;images&quot;:&quot;&#x2F;images&quot;,&quot;scheme&quot;:&quot;Pisces&quot;,&quot;version&quot;:&quot;8.5.0&quot;,&quot;exturl&quot;:false,&quot;sidebar&quot;:{&quot;position&quot;:&quot;left&quot;,&quot;display&quot;:&quot;always&quot;,&quot;padding&quot;:18,&quot;offset&quot;:12},&quot;copycode&quot;:true,&quot;bookmark&quot;:{&quot;enable&quot;:true,&quot;color&quot;:&quot;#222&quot;,&quot;save&quot;:&quot;auto&quot;},&quot;fancybox&quot;:false,&quot;mediumzoom&quot;:false,&quot;lazyload&quot;:true,&quot;pangu&quot;:false,&quot;comments&quot;:{&quot;style&quot;:&quot;tabs&quot;,&quot;active&quot;:null,&quot;storage&quot;:true,&quot;lazyload&quot;:false,&quot;nav&quot;:null},&quot;motion&quot;:{&quot;enable&quot;:true,&quot;async&quot;:false,&quot;transition&quot;:{&quot;post_block&quot;:&quot;fadeIn&quot;,&quot;post_header&quot;:&quot;fadeInDown&quot;,&quot;post_body&quot;:&quot;fadeInDown&quot;,&quot;coll_header&quot;:&quot;fadeInLeft&quot;,&quot;sidebar&quot;:&quot;fadeInUp&quot;}},&quot;prism&quot;:false,&quot;i18n&quot;:{&quot;placeholder&quot;:&quot;搜索...&quot;,&quot;empty&quot;:&quot;没有找到任何搜索结果：${query}&quot;,&quot;hits_time&quot;:&quot;找到 ${hits} 个搜索结果（用时 ${time} 毫秒）&quot;,&quot;hits&quot;:&quot;找到 ${hits} 个搜索结果&quot;}}</script><script src="/js/config.js"></script>
-<meta name="description" content="今天在学习git的时候，了解到两个很重要的概念：团队内协作和跨团队协作团队内协作的机制  本地库1和本地库2分别代表两个成员； 成员1将写好的代码push到远程库，然后成员二想修改代码，这时候就通过git pull 或 git clone把它拉取到自己的本地库； 修改好后，此时成员2想把修改后的代码提交到远程库，这时候通过git push 是不可以的； 此时就需要成员1把成员2拉进自己本地库的管理">
+<meta name="description" content="在使用Vue-Cli创建项目的时候，会有一个Vue Build选项：runtime-only和runtime+compiler。那么，他们两个的区别到底是什么呢？runtime-only:在这种模式下，通常需要借助webpack中的vue-loader将.vue文件解析成.js文件，因为是在编译阶段做的，所以他只包括运行时的Vue.js代码，这就使得其代码量更加轻量级。同时，在编译.vue文件的时">
 <meta property="og:type" content="article">
-<meta property="og:title" content="git之团队内协作和跨团队协作">
-<meta property="og:url" content="http://example.com/2021/08/24/git/index.html">
+<meta property="og:title" content="runtime-only和runtime+compiler的区别">
+<meta property="og:url" content="http://example.com/2021/12/09/runtime-only%E5%92%8Cruntime-compiler%E7%9A%84%E5%8C%BA%E5%88%AB/index.html">
 <meta property="og:site_name" content="DikL">
-<meta property="og:description" content="今天在学习git的时候，了解到两个很重要的概念：团队内协作和跨团队协作团队内协作的机制  本地库1和本地库2分别代表两个成员； 成员1将写好的代码push到远程库，然后成员二想修改代码，这时候就通过git pull 或 git clone把它拉取到自己的本地库； 修改好后，此时成员2想把修改后的代码提交到远程库，这时候通过git push 是不可以的； 此时就需要成员1把成员2拉进自己本地库的管理">
+<meta property="og:description" content="在使用Vue-Cli创建项目的时候，会有一个Vue Build选项：runtime-only和runtime+compiler。那么，他们两个的区别到底是什么呢？runtime-only:在这种模式下，通常需要借助webpack中的vue-loader将.vue文件解析成.js文件，因为是在编译阶段做的，所以他只包括运行时的Vue.js代码，这就使得其代码量更加轻量级。同时，在编译.vue文件的时">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://example.com/2021/08/24/git/%E5%9B%A2%E9%98%9F%E5%86%85%E5%8D%8F%E4%BD%9C.png">
-<meta property="og:image" content="http://example.com/2021/08/24/git/%E8%B7%A8%E5%9B%A2%E9%98%9F%E5%8D%8F%E4%BD%9C.png">
-<meta property="article:published_time" content="2021-08-24T07:51:11.000Z">
-<meta property="article:modified_time" content="2021-08-25T02:44:11.204Z">
+<meta property="article:published_time" content="2021-12-09T02:16:16.000Z">
+<meta property="article:modified_time" content="2021-12-09T02:35:11.122Z">
 <meta property="article:author" content="代先森">
-<meta property="article:tag" content="git">
+<meta property="article:tag" content="Vue2.0">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://example.com/2021/08/24/git/%E5%9B%A2%E9%98%9F%E5%86%85%E5%8D%8F%E4%BD%9C.png">
 
 
-<link rel="canonical" href="http://example.com/2021/08/24/git/">
+<link rel="canonical" href="http://example.com/2021/12/09/runtime-only%E5%92%8Cruntime-compiler%E7%9A%84%E5%8C%BA%E5%88%AB/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{&quot;sidebar&quot;:&quot;&quot;,&quot;isHome&quot;:false,&quot;isPost&quot;:true,&quot;lang&quot;:&quot;zh-CN&quot;,&quot;comments&quot;:true,&quot;permalink&quot;:&quot;http:&#x2F;&#x2F;example.com&#x2F;2021&#x2F;08&#x2F;24&#x2F;git&#x2F;&quot;,&quot;path&quot;:&quot;2021&#x2F;08&#x2F;24&#x2F;git&#x2F;&quot;,&quot;title&quot;:&quot;git之团队内协作和跨团队协作&quot;}</script>
+<script class="next-config" data-name="page" type="application/json">{&quot;sidebar&quot;:&quot;&quot;,&quot;isHome&quot;:false,&quot;isPost&quot;:true,&quot;lang&quot;:&quot;zh-CN&quot;,&quot;comments&quot;:true,&quot;permalink&quot;:&quot;http:&#x2F;&#x2F;example.com&#x2F;2021&#x2F;12&#x2F;09&#x2F;runtime-only%E5%92%8Cruntime-compiler%E7%9A%84%E5%8C%BA%E5%88%AB&#x2F;&quot;,&quot;path&quot;:&quot;2021&#x2F;12&#x2F;09&#x2F;runtime-only和runtime-compiler的区别&#x2F;&quot;,&quot;title&quot;:&quot;runtime-only和runtime+compiler的区别&quot;}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">&quot;&quot;</script>
-<title>git之团队内协作和跨团队协作 | DikL</title>
+<title>runtime-only和runtime+compiler的区别 | DikL</title>
   
 
 
@@ -126,7 +123,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%8A%E5%A4%A9%E5%9C%A8%E5%AD%A6%E4%B9%A0git%E7%9A%84%E6%97%B6%E5%80%99%EF%BC%8C%E4%BA%86%E8%A7%A3%E5%88%B0%E4%B8%A4%E4%B8%AA%E5%BE%88%E9%87%8D%E8%A6%81%E7%9A%84%E6%A6%82%E5%BF%B5%EF%BC%9A%E5%9B%A2%E9%98%9F%E5%86%85%E5%8D%8F%E4%BD%9C%E5%92%8C%E8%B7%A8%E5%9B%A2%E9%98%9F%E5%8D%8F%E4%BD%9C"><span class="nav-number">1.</span> <span class="nav-text">今天在学习git的时候，了解到两个很重要的概念：团队内协作和跨团队协作</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%A2%E9%98%9F%E5%86%85%E5%8D%8F%E4%BD%9C%E7%9A%84%E6%9C%BA%E5%88%B6"><span class="nav-number"></span> <span class="nav-text">团队内协作的机制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%B7%A8%E5%9B%A2%E9%98%9F%E5%8D%8F%E4%BD%9C%E6%9C%BA%E5%88%B6"><span class="nav-number"></span> <span class="nav-text">跨团队协作机制</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%86%99%E5%9C%A8%E6%9C%80%E5%90%8E"><span class="nav-number">1.</span> <span class="nav-text">写在最后</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9C%A8%E4%BD%BF%E7%94%A8Vue-Cli%E5%88%9B%E5%BB%BA%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%97%B6%E5%80%99%EF%BC%8C%E4%BC%9A%E6%9C%89%E4%B8%80%E4%B8%AAVue-Build%E9%80%89%E9%A1%B9%EF%BC%9Aruntime-only%E5%92%8Cruntime-compiler%E3%80%82%E9%82%A3%E4%B9%88%EF%BC%8C%E4%BB%96%E4%BB%AC%E4%B8%A4%E4%B8%AA%E7%9A%84%E5%8C%BA%E5%88%AB%E5%88%B0%E5%BA%95%E6%98%AF%E4%BB%80%E4%B9%88%E5%91%A2%EF%BC%9F"><span class="nav-number">1.</span> <span class="nav-text">在使用Vue-Cli创建项目的时候，会有一个Vue Build选项：runtime-only和runtime+compiler。那么，他们两个的区别到底是什么呢？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#runtime-only"><span class="nav-number">2.</span> <span class="nav-text">runtime-only:</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#runtime-compiler"><span class="nav-number">2.1.</span> <span class="nav-text">runtime+compiler:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A1%A5%E5%85%85%E8%AF%B4%E4%B8%80%E4%B8%8Brender%E5%87%BD%E6%95%B0%EF%BC%9A"><span class="nav-number">2.2.</span> <span class="nav-text">补充说一下render函数：</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -197,7 +194,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/08/24/git/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/12/09/runtime-only%E5%92%8Cruntime-compiler%E7%9A%84%E5%8C%BA%E5%88%AB/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/ao.jpg">
@@ -210,7 +207,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          git之团队内协作和跨团队协作
+          runtime-only和runtime+compiler的区别
         </h1>
 
         <div class="post-meta-container">
@@ -220,16 +217,10 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
+      
 
-      <time title="创建时间：2021-08-24 15:51:11" itemprop="dateCreated datePublished" datetime="2021-08-24T15:51:11+08:00">2021-08-24</time>
+      <time title="创建时间：2021-12-09 10:16:16 / 修改时间：10:35:11" itemprop="dateCreated datePublished" datetime="2021-12-09T10:16:16+08:00">2021-12-09</time>
     </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2021-08-25 10:44:11" itemprop="dateModified" datetime="2021-08-25T10:44:11+08:00">2021-08-25</time>
-      </span>
 
   
   
@@ -241,8 +232,8 @@
       <span class="post-meta-item-text">Changyan：</span>
     
     
-      <a title="changyan" href="/2021/08/24/git/#SOHUCS" itemprop="discussionUrl">
-        <span id="changyan_count_unit" class="post-comments-count hc-comment-count" data-xid="2021/08/24/git/" itemprop="commentCount"></span>
+      <a title="changyan" href="/2021/12/09/runtime-only%E5%92%8Cruntime-compiler%E7%9A%84%E5%8C%BA%E5%88%AB/#SOHUCS" itemprop="discussionUrl">
+        <span id="changyan_count_unit" class="post-comments-count hc-comment-count" data-xid="2021/12/09/runtime-only和runtime-compiler的区别/" itemprop="commentCount"></span>
       </a>
     
   </span>
@@ -257,27 +248,12 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h3 id="今天在学习git的时候，了解到两个很重要的概念：团队内协作和跨团队协作"><a href="#今天在学习git的时候，了解到两个很重要的概念：团队内协作和跨团队协作" class="headerlink" title="今天在学习git的时候，了解到两个很重要的概念：团队内协作和跨团队协作"></a>今天在学习git的时候，了解到两个很重要的概念：团队内协作和跨团队协作</h3><h2 id="团队内协作的机制"><a href="#团队内协作的机制" class="headerlink" title="团队内协作的机制"></a>团队内协作的机制</h2><p><img data-src="/2021/08/24/git/%E5%9B%A2%E9%98%9F%E5%86%85%E5%8D%8F%E4%BD%9C.png" alt="团队内协作"></p>
-<ul>
-<li>本地库1和本地库2分别代表两个成员；</li>
-<li>成员1将写好的代码push到远程库，然后成员二想修改代码，这时候就通过git pull 或 git clone把它拉取到自己的本地库；</li>
-<li>修改好后，此时成员2想把修改后的代码提交到远程库，这时候通过git push 是不可以的；</li>
-<li>此时就需要成员1把成员2拉进自己本地库的管理团队中，这时成员2才有提交的权限；</li>
-<li>然后，成员2就可以顺利提交到远程库。</li>
-</ul>
-<h2 id="跨团队协作机制"><a href="#跨团队协作机制" class="headerlink" title="跨团队协作机制"></a>跨团队协作机制</h2><p><img data-src="/2021/08/24/git/%E8%B7%A8%E5%9B%A2%E9%98%9F%E5%8D%8F%E4%BD%9C.png" alt="跨团队协作"></p>
-<ul>
-<li>本地库1本地库2和本地库3分别代表三个成员，其中成员1和成员2互为团队成员；</li>
-<li>成员1将写好的代码推送到远程库，这时候团队外的一名成员想要修改代码；</li>
-<li>先在github中搜索到这个项目，然后再fork一份到自己的远程库；</li>
-<li>再通过git pull/git clone 拉取到自己的本地库</li>
-<li>将代码修改好后，push到自己的远程库</li>
-<li>这个时候要想推送给成员1的远程库，就要先给成员1发送pull Request</li>
-<li>成员1收到请求后，先查看代码是否符合自己的预期，如果符合预期，就同意申请</li>
-<li>同意后，再把成员3修改的代码merg到自己代码上</li>
-<li>之后成员1和成员2就可以看到修改后的代码</li>
-</ul>
-<h3 id="写在最后"><a href="#写在最后" class="headerlink" title="写在最后"></a>写在最后</h3><p>这就是本次我的学习感想，可能不是很全面，还请大家多多批评！</p>
+        <h2 id="在使用Vue-Cli创建项目的时候，会有一个Vue-Build选项：runtime-only和runtime-compiler。那么，他们两个的区别到底是什么呢？"><a href="#在使用Vue-Cli创建项目的时候，会有一个Vue-Build选项：runtime-only和runtime-compiler。那么，他们两个的区别到底是什么呢？" class="headerlink" title="在使用Vue-Cli创建项目的时候，会有一个Vue Build选项：runtime-only和runtime+compiler。那么，他们两个的区别到底是什么呢？"></a>在使用Vue-Cli创建项目的时候，会有一个Vue Build选项：runtime-only和runtime+compiler。那么，他们两个的区别到底是什么呢？</h2><h2 id="runtime-only"><a href="#runtime-only" class="headerlink" title="runtime-only:"></a>runtime-only:</h2><p>在这种模式下，通常需要借助webpack中的vue-loader将.vue文件解析成.js文件，因为是在编译阶段做的，所以他只包括运行时的Vue.js代码，这就使得其代码量更加轻量级。<br>同时，在编译.vue文件的时候，vue-template-compiler会将组件中的template模板编译为render函数，所以就省去了由template到ast（抽象语法树）的过程，因此这种模式性能更好。<br>下面说一下runtime-only的解析过程：<br>render-&gt;virtualDom-&gt;UI</p>
+<h3 id="runtime-compiler"><a href="#runtime-compiler" class="headerlink" title="runtime+compiler:"></a>runtime+compiler:</h3><p>只有以下情况会用到compiler：<br>没有指定template；<br>没有指定template，也没有指定render函数。<br>老规矩，说一下runtime+compiler的执行过程：<br>template-&gt;ast(抽象语法树)-&gt;render-&gt;virtualDom-&gt;UI</p>
+<h3 id="补充说一下render函数："><a href="#补充说一下render函数：" class="headerlink" title="补充说一下render函数："></a>补充说一下render函数：</h3><p>基本用法：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> Vue(&#123;</span><br><span class="line">    <span class="attr">el</span>:<span class="string">&#x27;#app&#x27;</span>,</span><br><span class="line">  </span><br><span class="line">    <span class="comment">//在创建的时候createElement用h代替</span></span><br><span class="line">    <span class="attr">render</span>:<span class="function"><span class="keyword">function</span>(<span class="params">createEelment</span>) </span>&#123;</span><br><span class="line">      </span><br><span class="line">    <span class="comment">//1.普通用法：</span></span><br><span class="line">    <span class="comment">//createElement(&#x27;标签名&#x27;,&#123;标签属性&#125;,[&#x27;标签内容&#x27;])</span></span><br><span class="line">    createElement(<span class="string">&#x27;h2&#x27;</span>,&#123;<span class="attr">calss</span>:<span class="string">&#x27;box&#x27;</span>&#125;,[<span class="string">&#x27;hello&#x27;</span>])</span><br><span class="line">&#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>高级用法：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//子组件</span></span><br><span class="line"><span class="keyword">const</span> cpn = &#123;</span><br><span class="line">    <span class="attr">template</span>:<span class="string">`&lt;div&gt;&#123;&#123;message&#125;&#125;&lt;div/&gt;`</span>,</span><br><span class="line">    <span class="function"><span class="title">data</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">        <span class="keyword">return</span>&#123;</span><br><span class="line">            <span class="attr">message</span>:<span class="string">&#x27;我是子组件&#x27;</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">​</span><br><span class="line"><span class="keyword">new</span> Vue(&#123;</span><br><span class="line">    <span class="attr">el</span>:<span class="string">&#x27;#app&#x27;</span>,</span><br><span class="line">  </span><br><span class="line">    <span class="comment">//在创建的时候createElement用h代替</span></span><br><span class="line">    <span class="attr">render</span>:<span class="function"><span class="keyword">function</span>(<span class="params">createEelment</span>) </span>&#123;</span><br><span class="line">      </span><br><span class="line">    <span class="comment">//2.高级用法：传入组件对象,此时组件对象就可以替换掉所挂载的元素</span></span><br><span class="line">    createElement(cpn)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -287,20 +263,20 @@
 
     <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/git/" rel="tag"># git</a>
+              <a href="/tags/Vue2-0/" rel="tag"># Vue2.0</a>
           </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2021/08/23/JS%E9%A2%84%E8%A7%A3%E6%9E%90/" rel="prev" title="JS预解析">
-                  <i class="fa fa-chevron-left"></i> JS预解析
+                <a href="/2021/08/25/%E7%B1%BB%E5%92%8C%E5%AF%B9%E8%B1%A1/" rel="prev" title="类和对象">
+                  <i class="fa fa-chevron-left"></i> 类和对象
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2021/08/25/%E7%B1%BB%E5%92%8C%E5%AF%B9%E8%B1%A1/" rel="next" title="类和对象">
-                  类和对象 <i class="fa fa-chevron-right"></i>
+                <a href="/2021/12/09/Vue3%E8%B5%B7%E6%AD%A5%E2%80%94%E2%80%94%E9%82%82%E9%80%85setup%E5%87%BD%E6%95%B0/" rel="next" title="Vue3起步——邂逅setup函数">
+                  Vue3起步——邂逅setup函数 <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>
